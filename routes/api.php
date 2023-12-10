@@ -22,8 +22,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/login', [AuthController::class, 'login']);
 
-//Route::middleware('auth')->group(function () {
+Route::middleware('auth')->group(function () {
     Route::resource('kemeja', KemejaController::class);
     Route::post('/kemeja/{id}', [KemejaController::class, 'update']);
     Route::get('/seller', [KemejaController::class, 'showSeller']);
-//});
+});
